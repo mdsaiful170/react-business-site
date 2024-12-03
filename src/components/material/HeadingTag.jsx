@@ -1,4 +1,4 @@
-import React from "react";
+
 import { cn } from "../../../lib/utilits";
 
 export const HeadingTag = ({ className, children }) => {

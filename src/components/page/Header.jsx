@@ -4,9 +4,7 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem,
   Link,
   Button,
   Chip,
@@ -39,7 +37,7 @@ const Header = () => {
       isBlurred={false}
       isSticky
       shouldHideOnScroll={false}
-      maxWidth="2xl"
+      maxWidth="xl"
       className="bg-white w-full py-5 mx-auto !overflow-y-auto"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={isMenuOpen}
@@ -83,7 +81,7 @@ const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Dropdown className="!w-[90px] shadow-none">
+          <Dropdown>
             <DropdownTrigger>
               <Button
                 variant="light"
@@ -96,7 +94,7 @@ const Header = () => {
             </DropdownTrigger>
             <DropdownMenu
               aria-label="Action event example"
-              className="text-left border border-stone-200 shadow-sm rounded-xl w-[170px]"
+              className="text-left  rounded-xl w-[170px]"
             >
               {subMenuOne.map((items, i) => (
                 <DropdownItem
@@ -121,7 +119,7 @@ const Header = () => {
               className=""
               content={3}
               color="primary"
-              placement="top-left"
+              placement="top-right"
             >
               <Link color="secondary" className="font-medium text-lg " href="#">
                 <ShoppingCart color="#26395C" strokeWidth={2} />
@@ -130,7 +128,7 @@ const Header = () => {
           </NavbarItem>
 
           <NavbarItem>
-            <Dropdown className="!w-[50px] shadow-none">
+            <Dropdown>
               <DropdownTrigger>
                 <Button
                   variant="light"
@@ -143,7 +141,7 @@ const Header = () => {
               </DropdownTrigger>
               <DropdownMenu
                 aria-label="Action event example"
-                className="text-left border border-stone-200 shadow-sm rounded-xl w-[170px]"
+                className="text-left w-[170px]"
               >
                 {subMenuTwo.map((items, i) => (
                   <DropdownItem
@@ -169,7 +167,14 @@ const Header = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="md:hidden" justify="end">
+      <NavbarContent className="md:hidden space-x-3" justify="end">
+        <NavbarItem>
+          <Badge className="" content={3} color="primary" placement="top-right">
+            <Link color="secondary" className="font-medium text-lg " href="#">
+              <ShoppingCart color="#26395C" strokeWidth={2} />
+            </Link>
+          </Badge>
+        </NavbarItem>
         <NavbarItem>
           <button onClick={menuToggleHandel}>
             {isMenuOpen ? (
@@ -181,8 +186,9 @@ const Header = () => {
         </NavbarItem>
       </NavbarContent>
 
+      {/* mobile menu bar */}
       <NavbarMenu
-        className="w-full mt-12 py-5 !h-auto z-10 !overflow-auto bg-bgcolor"
+        className="w-full mt-10 py-5 !h-auto z-10 !overflow-auto bg-bgcolor"
         onAnimationIteration={true}
       >
         <NavbarItem className="pb-8 cursor-pointer">

@@ -17,7 +17,12 @@ export default {
       colors: {
         primary: " #0E8BFF",
         secondary: "#26395C",
-        bgcolor:"#F5FAFF"
+        bgcolor: "#F5FAFF",
+        default: "#FFFFFF",
+      },
+      boxShadow: {
+        "custom-1": "0px 8px 18px 0px #171E370D", // Your first custom shadow
+        "custom-2": "0px 14px 44px 0px #189EFF0F", // Your second custom shadow
       },
     },
   },

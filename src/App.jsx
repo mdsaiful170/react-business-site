@@ -1,14 +1,21 @@
+import Chillsbay from "./components/page/Chillsbay";
 import Header from "./components/page/Header";
+import Hero from "./components/page/Hero";
+import Lagos from "./components/page/Lagos";
+import Mood from "./components/page/Mood";
 
 function App() {
   return (
     <>
-     <main>
+      <main>
         <Header />
-       <div>
-
-       </div>
-     </main>
+        <div>
+          <Hero />
+          <Mood />
+          <Lagos />
+          <Chillsbay />
+        </div>
+      </main>
     </>
   );
 }
