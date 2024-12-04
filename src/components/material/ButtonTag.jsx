@@ -1,9 +1,10 @@
 import { Button } from "@nextui-org/react";
 import { cn } from "../../../lib/utilits";
-export const ButtonTag = ({ className, children }) => {
+export const ButtonTag = ({ className, children, varient }) => {
   return (
     <>
       <Button
+        variant={varient}
         radius="none"
         size="md"
         color="primary"

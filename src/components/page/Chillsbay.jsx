@@ -25,7 +25,7 @@ const ChillsbayCardData = [
 const Chillsbay = () => {
   return (
     <>
-      <section className="py-5">
+      <section className="py-5 pb-10">
         <HeadingTag className={"text-center text-[40px] pt-14 pb-10"}>Why Use Chillsbay?</HeadingTag>
         <ContainerTage className={"bg-[#F5FAFF] lg:px-10 px-6 py-10 lg:py-14  shadow-custom-1  rounded"}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-8">

@@ -12,7 +12,7 @@ export const LagosCard = (props) => {
       >
         <img
           src={img}
-          className="w-full group-hover/box:contrast-150 duration-150 transition-all ease-linear group-hover/box:scale-[1.03]  rounded-2xl shadow-md border border-stone-200 h-[270px] rouned-xl object-cover"
+          className="w-full h-auto group-hover/box:contrast-150 duration-150 transition-all ease-linear group-hover/box:scale-[1.03]  rounded-2xl shadow-md border border-stone-200 lg:h-[270px] rouned-xl object-cover"
           alt=""
         />
         <h3 className="pt-3 text-center text-2xl font-bold text-secondary">

@@ -1,3 +1,4 @@
+import Carusole from "./components/page/Carusole";
 import Chillsbay from "./components/page/Chillsbay";
 import Header from "./components/page/Header";
 import Hero from "./components/page/Hero";
@@ -14,6 +15,7 @@ function App() {
           <Mood />
           <Lagos />
           <Chillsbay />
+          <Carusole />
         </div>
       </main>
     </>
