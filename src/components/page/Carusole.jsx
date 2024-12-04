@@ -132,16 +132,16 @@ const Carusole = () => {
             <ChevronRight size={60} color="#26395C" strokeWidth={1} />{" "}
           </button>
 
-          <div className="grid grid-cols-5 gap-x-7 gap-y-5">
-            <div className="col-span-5 md:col-span-3">
+          <div className="grid grid-cols-4 lg:grid-cols-5 gap-x-7 gap-y-5">
+            <div className="col-span-4 md:col-span-2 lg:col-span-3">
               <img
                 src={carusole.img}
-                className="w-full h-auto lg:h-[580px] object-cover max-w-full rounded-2xl shadow-custom-1"
+                className="w-full h-auto md:h-[460px] lg:h-[580px] object-cover max-w-full rounded-2xl shadow-custom-1"
                 alt="img"
               />
             </div>
 
-            <div className="col-span-5 md:col-span-2">
+            <div className="col-span-4 md:col-span-2 ">
               <HeadingTag className={"text-[42PX] pb-5"}>
                 {carusole.title}
               </HeadingTag>
@@ -190,7 +190,9 @@ const Carusole = () => {
                 }`}
                 key={index}
                 onClick={() => handelDotbox(index)}
+
               ></button>
+       
             ))}
           </div>
         </ContainerTage>
