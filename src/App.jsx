@@ -1,5 +1,8 @@
 import Carusole from "./components/page/Carusole";
 import Chillsbay from "./components/page/Chillsbay";
+import Footer from "./components/page/Footer";
+import Gallery from "./components/page/Gallery";
+
 import Header from "./components/page/Header";
 import Hero from "./components/page/Hero";
 import Lagos from "./components/page/Lagos";
@@ -16,7 +19,9 @@ function App() {
           <Lagos />
           <Chillsbay />
           <Carusole />
+          <Gallery />
         </div>
+        <Footer />
       </main>
     </>
   );

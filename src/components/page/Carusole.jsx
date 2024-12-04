@@ -103,7 +103,7 @@ const Carusole = () => {
   const carusole = CarusoleData[currentIndex];
   return (
     <>
-      <section className="py-8 border border-[#9A9FBF1A] bg-white">
+      <section className="py-8 pb-12 border border-[#9A9FBF1A] bg-white">
         <HeadingTag
           className={
             "text-[42px] font-bold text-secondary text-center pb-10 pt-8"
@@ -191,7 +191,7 @@ const Carusole = () => {
                 key={index}
                 onClick={() => handelDotbox(index)}
 
-              ></button>
+              > </button>
        
             ))}
           </div>
