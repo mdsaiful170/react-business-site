@@ -1,10 +1,14 @@
 import { cn } from "../../../lib/utilits";
-
+import { motion } from "motion/react";
 export const LagosCard = (props) => {
-  const { title, img, className } = props || {};
+  const { title, img, dely, className } = props || {};
   return (
     <>
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: dely }}
         className={cn(
           "cursor-pointer group/box overflow-hidden relative rounded-2xl",
           className
@@ -18,7 +22,7 @@ export const LagosCard = (props) => {
         <h3 className="pt-3 text-center text-2xl font-bold text-secondary">
           {title}
         </h3>
-      </div>
+      </motion.div>
     </>
   );
 };

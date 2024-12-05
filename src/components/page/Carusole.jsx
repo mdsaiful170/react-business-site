@@ -1,6 +1,7 @@
 import { ContainerTage } from "../material/ContainerTage";
 import { HeadingTag } from "../material/HeadingTag";
 import { ButtonTag } from "../material/ButtonTag";
+import { motion } from "motion/react";
 import {
   Instagram,
   Twitter,
@@ -133,15 +134,27 @@ const Carusole = () => {
           </button>
 
           <div className="grid grid-cols-4 lg:grid-cols-5 gap-x-7 gap-y-5">
-            <div className="col-span-4 md:col-span-2 lg:col-span-3">
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease:"linear" }}
+              className="col-span-4 md:col-span-2 lg:col-span-3"
+            >
               <img
                 src={carusole.img}
                 className="w-full h-auto md:h-[460px] lg:h-[580px] object-cover max-w-full rounded-2xl shadow-custom-1"
                 alt="img"
               />
-            </div>
+            </motion.div>
 
-            <div className="col-span-4 md:col-span-2 ">
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "linear" }}
+              className="col-span-4 md:col-span-2 "
+            >
               <HeadingTag className={"text-[42PX] pb-5"}>
                 {carusole.title}
               </HeadingTag>
@@ -179,7 +192,7 @@ const Carusole = () => {
                 <Twitter size={24} fill="#0E8BFF" color="#FFFFFF" />{" "}
                 <Instagram size={24} fill="#0E8BFF" color="#FFFFFF" />
               </p>
-            </div>
+            </motion.div>
           </div>
 
           <div className="flex items-center justify-center gap-x-3 pt-8">
@@ -190,9 +203,9 @@ const Carusole = () => {
                 }`}
                 key={index}
                 onClick={() => handelDotbox(index)}
-
-              > </button>
-       
+              >
+                {" "}
+              </button>
             ))}
           </div>
         </ContainerTage>
