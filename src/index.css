@@ -11,15 +11,11 @@
     @apply !overflow-x-hidden font-readhot box-border text-secondary capitalize outline-none;
   }
   section {
-    @apply px-6  ;
+    @apply px-6;
   }
-
 }
 
 @layer utilities {
- 
-
-
   @media (min-width: 250px) {
     html {
       font-size: 65%;
@@ -34,6 +30,7 @@
     html {
       font-size: 94%;
     }
+   
   }
   @media (min-width: 991px) {
     html {

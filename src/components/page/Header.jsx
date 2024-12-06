@@ -16,9 +16,11 @@ import {
   Accordion,
   AccordionItem,
 } from "@nextui-org/react";
-import { AlignJustify, ChevronDown, UserRound, X } from "lucide-react";
+import { AlignJustify, ChevronDown, X } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
 import { ButtonTag } from "../material/ButtonTag";
+import Dropdwonbox from "../ui/Dropdwonbox";
+import Modelbox from "../ui/Modelbox";
 const subMenuOne = ["Water Sports", "Day Parties", "Outdoors", "Rentals"];
 const subMenuTwo = ["My Profile", "My History", "singOut"];
 const subMenuThree = [
@@ -31,6 +33,7 @@ const subMenuThree = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const value = true;
   const menuToggleHandel = () => setIsMenuOpen((prv) => !prv);
   return (
     <Navbar
@@ -128,37 +131,11 @@ const Header = () => {
           </NavbarItem>
 
           <NavbarItem>
-            <Dropdown>
-              <DropdownTrigger>
-                <Button
-                  variant="light"
-                  disableAnimation={true}
-                  className="text-secondary text-lg font-medium hover:!opacity-100"
-                >
-                  <UserRound color="#26395C" size={22} strokeWidth={2} />
-                  Account{" "}
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                aria-label="Action event example"
-                className="text-left w-[170px]"
-              >
-                {subMenuTwo.map((items, i) => (
-                  <DropdownItem
-                    key={i}
-                    color="#D6EBFD"
-                    className="hover:bg-[#D6EBFD]"
-                  >
-                    <Link
-                      href={`"#"${items}`}
-                      className="text-secondary text-base font-medium"
-                    >
-                      {items}
-                    </Link>
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
+            {value === true ? (
+              <Modelbox />
+            ) : (
+              <Dropdwonbox submenu={subMenuTwo} />
+            )}
           </NavbarItem>
         </NavbarItem>
 
@@ -168,6 +145,10 @@ const Header = () => {
       </NavbarContent>
 
       <NavbarContent className="md:hidden space-x-3" justify="end">
+        <NavbarItem>
+          {value === true ? <Modelbox /> : <Dropdwonbox submenu={subMenuTwo} />}
+        </NavbarItem>
+
         <NavbarItem>
           <Badge className="" content={3} color="primary" placement="top-right">
             <Link color="secondary" className="font-medium text-lg " href="#">
