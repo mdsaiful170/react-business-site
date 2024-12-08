@@ -1,6 +1,6 @@
-import { ContainerTage } from "../material/ContainerTage";
-import { HeadingTag } from "../material/HeadingTag";
-import { MoodCard } from "../ui/MoodCard";
+import { ContainerTage } from "../../material/ContainerTage";
+import { HeadingTag } from "../../material/HeadingTag";
+import { MoodCard } from "../../ui/MoodCard";
 
 
 const moodData = [

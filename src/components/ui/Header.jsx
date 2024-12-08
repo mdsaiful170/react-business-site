@@ -21,7 +21,8 @@ import { ShoppingCart } from "lucide-react";
 import { ButtonTag } from "../material/ButtonTag";
 import Dropdwonbox from "../ui/Dropdwonbox";
 import Modelbox from "../ui/Modelbox";
-const subMenuOne = ["Water Sports", "Day Parties", "Outdoors", "Rentals"];
+import { NavLink } from "react-router-dom";
+const subMenuOne = ["water Sports", "Day Parties", "Outdoors", "Rentals"];
 const subMenuTwo = ["My Profile", "My History", "singOut"];
 const subMenuThree = [
   "My Profile",
@@ -47,11 +48,13 @@ const Header = () => {
     >
       <NavbarContent justify="start">
         <NavbarBrand>
-          <img
-            src="./logo.svg"
-            alt=""
-            className=" w-[130px] lg:w-[166px] object-cover "
-          />
+          <NavLink to={"/"}>
+            <img
+              src="./logo.svg"
+              alt=""
+              className=" w-[130px] lg:w-[166px] object-cover "
+            />
+          </NavLink>
         </NavbarBrand>
       </NavbarContent>
 
@@ -60,15 +63,25 @@ const Header = () => {
         justify="end"
       >
         <NavbarItem>
-          <Link color="secondary" className="font-medium text-lg " href="#">
+          <NavLink
+            to={"/drink"}
+            className={({ isActive }) =>
+              `font-medium text-lg ${
+                isActive ? "text-primary" : "text-secondary"
+              }`
+            }
+          >
             Eat & drink
-          </Link>
+          </NavLink>
         </NavbarItem>
         <NavbarItem>
-          <Link
-            href="#"
-            color="secondary"
-            className="font-medium text-lg"
+          <NavLink
+            to={"/club"}
+            className={({ isActive }) =>
+              `font-medium text-lg ${
+                isActive ? "text-primary" : "text-secondary"
+              }`
+            }
             aria-current="page"
           >
             Club{" "}
@@ -81,7 +94,7 @@ const Header = () => {
                 hot
               </Chip>
             </sup>
-          </Link>
+          </NavLink>
         </NavbarItem>
         <NavbarItem>
           <Dropdown>
@@ -105,12 +118,17 @@ const Header = () => {
                   color="#D6EBFD"
                   className="hover:bg-[#D6EBFD]"
                 >
-                  <Link
-                    href={`"#"${items}`}
-                    className="text-secondary text-base font-medium"
+                  <NavLink
+                    to={`/${items.replace(/\s+/g, "").trim().toLowerCase()}`}
+                    className={({ isActive }) =>
+                      `font-medium text-lg ${
+                        isActive ? "!text-primary" : "!text-secondary"
+                      }`
+                    }
                   >
                     {items}
-                  </Link>
+                  </NavLink>
+                  {console.log(items.trim())}
                 </DropdownItem>
               ))}
             </DropdownMenu>
@@ -124,9 +142,16 @@ const Header = () => {
               color="primary"
               placement="top-right"
             >
-              <Link color="secondary" className="font-medium text-lg " href="#">
-                <ShoppingCart color="#26395C" strokeWidth={2} />
-              </Link>
+              <NavLink
+                to={"/shopingcart"}
+                className={({ isActive }) =>
+                  `font-medium text-lg ${
+                    isActive ? "!text-primary" : "!text-secondary"
+                  }`
+                }
+              >
+                <ShoppingCart strokeWidth={2} />
+              </NavLink>
             </Badge>
           </NavbarItem>
 
@@ -151,11 +176,19 @@ const Header = () => {
 
         <NavbarItem>
           <Badge className="" content={3} color="primary" placement="top-right">
-            <Link color="secondary" className="font-medium text-lg " href="#">
-              <ShoppingCart color="#26395C" strokeWidth={2} />
-            </Link>
+            <NavLink
+              to={"/shopingcart"}
+              className={({ isActive }) =>
+                `font-medium text-lg ${
+                  isActive ? "!text-primary" : "!text-secondary"
+                }`
+              }
+            >
+              <ShoppingCart strokeWidth={2} />
+            </NavLink>
           </Badge>
         </NavbarItem>
+
         <NavbarItem>
           <button onClick={menuToggleHandel}>
             {isMenuOpen ? (
@@ -173,15 +206,40 @@ const Header = () => {
         onAnimationIteration={true}
       >
         <NavbarItem className="pb-8 cursor-pointer">
-          <Link className="text-2xl font-medium text-secondary">
-            Eat & Drink
-          </Link>
+          <NavLink
+            to={"/drink"}
+            className={({ isActive }) =>
+              `font-medium text-2xl ${
+                isActive ? "text-primary" : "text-secondary"
+              }`
+            }
+          >
+            Eat & drink
+          </NavLink>
         </NavbarItem>
         <NavbarItem className="pb-8 cursor-pointer">
-          <Link className="text-2xl font-medium text-secondary">Events</Link>
+          <NavLink
+            to={"/events"}
+            className={({ isActive }) =>
+              `font-medium text-2xl ${
+                isActive ? "text-primary" : "text-secondary"
+              }`
+            }
+          >
+            Events
+          </NavLink>
         </NavbarItem>
         <NavbarItem className="pb-8 cursor-pointer">
-          <Link className="text-2xl font-medium text-secondary">Club</Link>
+          <NavLink
+            to={"/club"}
+            className={({ isActive }) =>
+              `font-medium text-2xl ${
+                isActive ? "text-primary" : "text-secondary"
+              }`
+            }
+          >
+            Club
+          </NavLink>
         </NavbarItem>
 
         <Accordion variant="light">
@@ -198,14 +256,16 @@ const Header = () => {
           >
             {subMenuThree.map((item, i) => (
               <NavbarItem className="-ms-6 pb-8" key={i}>
-                <Button
-                  className=" text-secondary !bg-none hover:!bg-bgcolor   text-2xl font-medium hover:!opacity-80 hover:!bg-none"
-                  disableAnimation={true}
-                  href="#"
-                  variant="light"
+                <NavLink
+                  to={`/${item.replace(/\s+/g, "").trim().toLowerCase()}`}
+                  className={({ isActive }) =>
+                    `font-medium text-2xl ${
+                      isActive ? "text-primary" : "text-secondary"
+                    }`
+                  }
                 >
                   {item}
-                </Button>
+                </NavLink>
               </NavbarItem>
             ))}
           </AccordionItem>

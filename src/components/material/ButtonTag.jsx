@@ -1,10 +1,11 @@
 import { Button } from "@nextui-org/react";
 import { cn } from "../../../lib/utilits";
-export const ButtonTag = ({ className, startContent, children, varient }) => {
+export const ButtonTag = ({ className,onclick, startContent, children, varient }) => {
   return (
     <>
       <Button
         variant={varient}
+        onClick={onclick}
         radius="none"
         size="md"
         color="primary"

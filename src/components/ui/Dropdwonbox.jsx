@@ -7,6 +7,7 @@ import {
   Link,
 } from "@nextui-org/react";
 import { UserRound } from "lucide-react";
+import { NavLink } from "react-router-dom";
 const Dropdwonbox = (props) => {
   const submenu = props?.submenu;
   return (
@@ -33,12 +34,16 @@ const Dropdwonbox = (props) => {
                 color="#D6EBFD"
                 className="hover:bg-[#D6EBFD]"
               >
-                <Link
-                  href={`"#"${items}`}
-                  className="text-secondary text-base font-medium"
+                <NavLink
+                  to={`/${items.replace(/\s+/g, "").trim().toLowerCase()}`}
+                  className={({ isActive }) =>
+                    `font-medium text-base ${
+                      isActive ? "!text-primary" : "!text-secondary"
+                    }`
+                  }
                 >
                   {items}
-                </Link>
+                </NavLink>
               </DropdownItem>
             ))}
         </DropdownMenu>

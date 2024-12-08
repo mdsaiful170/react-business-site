@@ -1,6 +1,6 @@
-import { ContainerTage } from "../material/ContainerTage";
-import { HeadingTag } from "../material/HeadingTag";
-import { ButtonTag } from "../material/ButtonTag";
+import { ContainerTage } from "../../material/ContainerTage";
+import { HeadingTag } from "../../material/HeadingTag";
+import { ButtonTag } from "../../material/ButtonTag";
 import { motion } from "motion/react";
 import {
   Instagram,
@@ -138,7 +138,7 @@ const Carusole = () => {
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, ease:"linear" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "linear" }}
               className="col-span-4 md:col-span-2 lg:col-span-3"
             >
               <img

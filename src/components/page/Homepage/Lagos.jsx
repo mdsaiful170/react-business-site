@@ -1,6 +1,6 @@
-import { ContainerTage } from "../material/ContainerTage";
-import { LagosCard } from "../ui/LagosCard";
-import { HeadingTag } from "../material/HeadingTag";
+import { ContainerTage } from "../../material/ContainerTage";
+import { LagosCard } from "../../ui/LagosCard";
+import { HeadingTag } from "../../material/HeadingTag";
 
 const LagosData = [
   {

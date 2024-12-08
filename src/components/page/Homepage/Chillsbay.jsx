@@ -1,7 +1,7 @@
 import { delay } from "framer-motion";
-import { ContainerTage } from "../material/ContainerTage";
-import { HeadingTag } from "../material/HeadingTag";
-import { ChillsbayCard } from "../ui/ChillsbayCard";
+import { ContainerTage } from "../../material/ContainerTage";
+import { HeadingTag } from "../../material/HeadingTag";
+import { ChillsbayCard } from "../../ui/ChillsbayCard";
 
 const ChillsbayCardData = [
   {

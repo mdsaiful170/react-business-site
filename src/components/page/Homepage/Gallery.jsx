@@ -1,12 +1,14 @@
 
-import { ContainerTage } from "../material/ContainerTage";
-import { HeadingTag } from "../material/HeadingTag";
+import { ContainerTage } from "../../material/ContainerTage";
+import { HeadingTag } from "../../material/HeadingTag";
 import LightGallery from "lightgallery/react";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
+import { motion } from "motion/react";
+
 
 const galleryimg = [
   "./g-1.png",
@@ -37,13 +39,18 @@ const Gallery = () => {
           elementClassNames="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-0 gap-y-3"
         >
           {galleryimg.map((img, i) => (
-            <a key={i} href={img} className="block group/box">
+            <motion.a 
+             initial={{ opacity: 0, scale: 0.9}}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: 'linear' }}
+             key={i} href={img} className="block group/box">
               <img
-                alt="{g}"
+                 alt={`gallery img ${i+1}`}
                 src={img}
                 className="w-full  h-[250px] object-cover  group-hover/box:contrast-125 duration-200 ease-linear transition-all"
               />
-            </a>
+            </motion.a>
           ))}
         </LightGallery>
       </ContainerTage>

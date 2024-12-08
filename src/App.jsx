@@ -1,28 +1,19 @@
-import Carusole from "./components/page/Carusole";
-import Chillsbay from "./components/page/Chillsbay";
-import Footer from "./components/page/Footer";
-import Gallery from "./components/page/Gallery";
-
-import Header from "./components/page/Header";
-import Hero from "./components/page/Hero";
-import Lagos from "./components/page/Lagos";
-import Mood from "./components/page/Mood";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import Layout from "./components/ui/Layout";
+import Home from "./components/page/Homepage/Home";
+import ErrorPage from "./components/ui/ErrorPage";
 
 function App() {
   return (
     <>
-      <main>
-        <Header />
-        <div>
-          <Hero />
-          <Mood />
-          <Lagos />
-          <Chillsbay />
-          <Carusole />
-          <Gallery />
-        </div>
-        <Footer />
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

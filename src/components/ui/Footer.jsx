@@ -7,7 +7,6 @@ import {
   Twitter,
   PencilRuler,
   Youtube,
-  ChevronRight,
   ArrowRight,
 } from "lucide-react";
 import { ButtonTag } from "../material/ButtonTag";
