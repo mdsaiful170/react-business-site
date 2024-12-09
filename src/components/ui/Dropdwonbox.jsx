@@ -4,22 +4,29 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  Link,
 } from "@nextui-org/react";
 import { UserRound } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+
 const Dropdwonbox = (props) => {
   const submenu = props?.submenu;
+  const location = useLocation();
+  const path = () => {
+    return location.pathname === "/club" ? "white" : "secondary";
+  };
+
   return (
     <>
-      <Dropdown>
+      <Dropdown
+        className={`${location.pathname === "/club"? "bg-black" :"bg-white"}`}
+      >
         <DropdownTrigger>
           <Button
             variant="light"
             disableAnimation={true}
-            className="text-secondary text-lg font-medium hover:!opacity-100"
+            className={` text-${path()} text-lg font-medium hover:!opacity-100 hover:!bg-transparent`}
           >
-            <UserRound color="#26395C" size={22} strokeWidth={2} />
+            <UserRound className={`${path()}`} size={22} strokeWidth={2} />
             Account{" "}
           </Button>
         </DropdownTrigger>
@@ -32,14 +39,14 @@ const Dropdwonbox = (props) => {
               <DropdownItem
                 key={i}
                 color="#D6EBFD"
-                className="hover:bg-[#D6EBFD]"
+                className={`hover:bg-[#D6EBFD] group/box }`}
               >
                 <NavLink
                   to={`/${items.replace(/\s+/g, "").trim().toLowerCase()}`}
                   className={({ isActive }) =>
                     `font-medium text-base ${
-                      isActive ? "!text-primary" : "!text-secondary"
-                    }`
+                      isActive ? "!text-primary" : `text-${path()}`
+                    } group-hover/box:text-secondary  `
                   }
                 >
                   {items}

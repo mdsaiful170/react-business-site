@@ -3,13 +3,17 @@ import { Eye, EyeOff, UserRound } from "lucide-react";
 
 import { useState } from "react";
 import { ButtonTag } from "../material/ButtonTag";
+import { useLocation } from "react-router-dom";
 
 const Modelbox = () => {
   const [isOpenModelbox, setModelbox] = useState(false);
   const ModalOpen = () => setModelbox(true);
   const ModalClose = () => setModelbox(false);
   const [inputType, setinputType] = useState("password");
-
+  const location =useLocation()
+  const path = () => {
+    return location.pathname === "/club" ? "text-white" : "text-secondary";
+  };
   const InputHander = () => {
     if (inputType === "password") {
       setinputType("text");
@@ -25,9 +29,9 @@ const Modelbox = () => {
           onPress={ModalOpen}
           variant="light"
           disableAnimation={true}
-          className="text-secondary text-lg font-medium hover:!opacity-100"
+          className={`${path()} text-lg font-medium hover:!opacity-100`}
         >
-          <UserRound color="#26395C" size={22} strokeWidth={2} />
+          <UserRound className={`${path()}`} size={22} strokeWidth={2} />
           Account{" "}
         </Button>
       </div>

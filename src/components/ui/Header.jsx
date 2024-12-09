@@ -5,7 +5,6 @@ import {
   NavbarContent,
   NavbarItem,
   NavbarMenu,
-  Link,
   Button,
   Chip,
   Badge,
@@ -21,7 +20,7 @@ import { ShoppingCart } from "lucide-react";
 import { ButtonTag } from "../material/ButtonTag";
 import Dropdwonbox from "../ui/Dropdwonbox";
 import Modelbox from "../ui/Modelbox";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 const subMenuOne = ["water Sports", "Day Parties", "Outdoors", "Rentals"];
 const subMenuTwo = ["My Profile", "My History", "singOut"];
 const subMenuThree = [
@@ -33,8 +32,23 @@ const subMenuThree = [
 ];
 
 const Header = () => {
+  const location = useLocation();
+  const path = () => {
+    return location.pathname === "/club" ? "text-white" : "text-secondary";
+  };
+  const path2 = () => {
+    return location.pathname === "/club" ? "bg-black" : "bg-white";
+  };
+  const headerClass = () => {
+    if (location.pathname === "/club") {
+      return "bg-black text-white";
+    } else {
+      return "bg-white text-black";
+    }
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const value = true;
+  const value = false;
   const menuToggleHandel = () => setIsMenuOpen((prv) => !prv);
   return (
     <Navbar
@@ -42,7 +56,7 @@ const Header = () => {
       isSticky
       shouldHideOnScroll={false}
       maxWidth="xl"
-      className="bg-white w-full py-5 mx-auto !overflow-y-auto"
+      className={` ${headerClass()}  w-full py-5 mx-auto !overflow-y-auto`}
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={isMenuOpen}
     >
@@ -66,9 +80,7 @@ const Header = () => {
           <NavLink
             to={"/drink"}
             className={({ isActive }) =>
-              `font-medium text-lg ${
-                isActive ? "text-primary" : "text-secondary"
-              }`
+              `font-medium text-lg ${isActive ? "text-primary" : path()}`
             }
           >
             Eat & drink
@@ -78,9 +90,7 @@ const Header = () => {
           <NavLink
             to={"/club"}
             className={({ isActive }) =>
-              `font-medium text-lg ${
-                isActive ? "text-primary" : "text-secondary"
-              }`
+              `font-medium text-lg ${isActive ? "text-primary" : path()}`
             }
             aria-current="page"
           >
@@ -97,12 +107,12 @@ const Header = () => {
           </NavLink>
         </NavbarItem>
         <NavbarItem>
-          <Dropdown>
+          <Dropdown className={`${path2()}`}>
             <DropdownTrigger>
               <Button
                 variant="light"
                 disableAnimation={true}
-                className="text-secondary text-lg font-medium hover:!opacity-100"
+                className={`${path()} text-lg font-medium hover:!opacity-100 hover:!bg-transparent`}
               >
                 Things to do{" "}
                 <ChevronDown color="#0E8BFF" size={20} strokeWidth={3} />
@@ -116,19 +126,18 @@ const Header = () => {
                 <DropdownItem
                   key={i}
                   color="#D6EBFD"
-                  className="hover:bg-[#D6EBFD]"
+                  className={`hover:bg-[#D6EBFD] group/box }`}
                 >
                   <NavLink
                     to={`/${items.replace(/\s+/g, "").trim().toLowerCase()}`}
                     className={({ isActive }) =>
                       `font-medium text-lg ${
-                        isActive ? "!text-primary" : "!text-secondary"
-                      }`
+                        isActive ? "!text-primary" : path()
+                      } group-hover/box:text-secondary`
                     }
                   >
                     {items}
                   </NavLink>
-                  {console.log(items.trim())}
                 </DropdownItem>
               ))}
             </DropdownMenu>
@@ -137,7 +146,7 @@ const Header = () => {
         <NavbarItem className="flex items-center gap-x-4">
           <NavbarItem>
             <Badge
-              className=""
+              className="border-0"
               content={3}
               color="primary"
               placement="top-right"
@@ -145,9 +154,7 @@ const Header = () => {
               <NavLink
                 to={"/shopingcart"}
                 className={({ isActive }) =>
-                  `font-medium text-lg ${
-                    isActive ? "!text-primary" : "!text-secondary"
-                  }`
+                  `font-medium text-lg ${isActive ? "!text-primary" : path()}`
                 }
               >
                 <ShoppingCart strokeWidth={2} />
@@ -175,12 +182,12 @@ const Header = () => {
         </NavbarItem>
 
         <NavbarItem>
-          <Badge className="" content={3} color="primary" placement="top-right">
+          <Badge className="border-0" content={3} color="primary" placement="top-right">
             <NavLink
               to={"/shopingcart"}
               className={({ isActive }) =>
                 `font-medium text-lg ${
-                  isActive ? "!text-primary" : "!text-secondary"
+                  isActive ? "!text-primary" : path()
                 }`
               }
             >
@@ -192,9 +199,9 @@ const Header = () => {
         <NavbarItem>
           <button onClick={menuToggleHandel}>
             {isMenuOpen ? (
-              <X color="#26395C" size={24} strokeWidth={3} />
+              <X className={`${path()}`} size={24} strokeWidth={3} />
             ) : (
-              <AlignJustify color="#26395C" size={24} strokeWidth={3} />
+              <AlignJustify className={`${path()}`} size={24} strokeWidth={3} />
             )}
           </button>
         </NavbarItem>
@@ -202,16 +209,14 @@ const Header = () => {
 
       {/* mobile menu bar */}
       <NavbarMenu
-        className="w-full mt-10 py-5 !h-auto z-10 !overflow-auto bg-bgcolor"
+        className={`w-full mt-10 py-5 !h-auto z-10 !overflow-auto ${path2()}`}
         onAnimationIteration={true}
       >
         <NavbarItem className="pb-8 cursor-pointer">
           <NavLink
             to={"/drink"}
             className={({ isActive }) =>
-              `font-medium text-2xl ${
-                isActive ? "text-primary" : "text-secondary"
-              }`
+              `font-medium text-2xl ${isActive ? "text-primary" : path()}`
             }
           >
             Eat & drink
@@ -221,9 +226,7 @@ const Header = () => {
           <NavLink
             to={"/events"}
             className={({ isActive }) =>
-              `font-medium text-2xl ${
-                isActive ? "text-primary" : "text-secondary"
-              }`
+              `font-medium text-2xl ${isActive ? "text-primary" : path()}`
             }
           >
             Events
@@ -233,9 +236,7 @@ const Header = () => {
           <NavLink
             to={"/club"}
             className={({ isActive }) =>
-              `font-medium text-2xl ${
-                isActive ? "text-primary" : "text-secondary"
-              }`
+              `font-medium text-2xl ${isActive ? "text-primary" : path()}`
             }
           >
             Club
@@ -247,21 +248,19 @@ const Header = () => {
             key="1"
             aria-label="things list"
             title={
-              <h3 className="text-2xl font-medium text-secondary">
+              <h3 className={`text-2xl font-medium ${path()}`}>
                 Things to do
               </h3>
             }
             className="!text-left border-b border-secondary/25 pb-2 !-ms-2 !-mt-2"
-            indicator={<ChevronDown color="#26395C" size={24} />}
+            indicator={<ChevronDown className={`${path()}`} size={24} />}
           >
             {subMenuThree.map((item, i) => (
               <NavbarItem className="-ms-6 pb-8" key={i}>
                 <NavLink
                   to={`/${item.replace(/\s+/g, "").trim().toLowerCase()}`}
                   className={({ isActive }) =>
-                    `font-medium text-2xl ${
-                      isActive ? "text-primary" : "text-secondary"
-                    }`
+                    `font-medium text-2xl ${isActive ? "text-primary" : path()}`
                   }
                 >
                   {item}
@@ -271,7 +270,7 @@ const Header = () => {
           </AccordionItem>
         </Accordion>
 
-        <ButtonTag className={"px-6 w-1/2 py-5 font-bold mt-6"}>
+        <ButtonTag className={"px-6 w-1/2 py-7 font-bold mt-6"}>
           Get Started
         </ButtonTag>
       </NavbarMenu>

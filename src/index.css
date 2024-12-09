@@ -8,7 +8,7 @@
     @apply !overflow-x-auto scroll-smooth transition-all duration-150 scroll-pt-7;
   }
   body {
-    @apply !overflow-x-hidden font-readhot box-border text-secondary capitalize outline-none;
+    @apply !overflow-x-hidden font-readhot box-border text-secondary  capitalize outline-none;
   }
   section {
     @apply px-6;

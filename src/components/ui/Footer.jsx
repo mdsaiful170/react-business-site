@@ -3,13 +3,13 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  LoaderPinwheel,
   Twitter,
   PencilRuler,
   Youtube,
   ArrowRight,
 } from "lucide-react";
 import { ButtonTag } from "../material/ButtonTag";
+import { useLocation } from "react-router-dom";
 
 const logoicon = [
   { icon: Facebook },
@@ -17,7 +17,6 @@ const logoicon = [
   { icon: Instagram },
   { icon: Linkedin },
   { icon: Youtube },
-  { icon: LoaderPinwheel },
 ];
 
 const MenuBox = [
@@ -54,9 +53,12 @@ const MenuBox = [
 ];
 
 const Footer = () => {
+  const location = useLocation();
+  const clubpath = location.pathname === "/club";
+
   return (
     <>
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <ContainerTage>
           <div className="grid items-start grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10 ">
             <div className=" col-span-2 sm:col-span-1">
@@ -72,10 +74,10 @@ const Footer = () => {
                   <div key={i}>
                     {
                       <icon.icon
-                        size={24}
-                        fill="#0E8BFF"
-                        strokeWidth={2}
+                        size={30}
+                        fill={clubpath ? "#000000" : "#0E8BFF"} // Change fill color based on path
                         color="#FFFFFF"
+                        strokeWidth={1}
                       />
                     }
                   </div>
@@ -83,14 +85,22 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-span-2 sm:col-span-1 bg-[#F5FAFF] px-6 py-7 md:hidden block rounded-2xl shadow-custom-1">
+            <div
+              className={`col-span-2 sm:col-span-1 ${
+                clubpath ? "bg-[#D0D8E71A]/10" : "bg-[#F5FAFF]"
+              } px-6 py-7 md:hidden block rounded-2xl shadow-custom-1`}
+            >
               <div className="rounded-2xl p-4 bg-primary inline-block">
                 <PencilRuler size={28} color="#FFFFFF" />
               </div>
-              <h3 className="text-xl font-bold text-secondary py-4">
+              <h3
+                className={` ${
+                  clubpath ? "text-white" : "text-secondary"
+                } text-xl font-bold  py-4 `}
+              >
                 Become a Partner
               </h3>
-              <p className="text-base font-normal text-secondary">
+              <p className="text-base font-normal text-[#656B89]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod
                 pellentesque posuere.
               </p>
@@ -100,7 +110,11 @@ const Footer = () => {
             {MenuBox.map((res, i) => (
               <div key={i}>
                 <h3 className="text-base font-bold pb-5 ">{res.name}</h3>
-                <span className="h-[1px] bg-secondary/25 w-3/4 block mb-2"></span>
+                <span
+                  className={`h-[1px] ${
+                    clubpath ? "bg-[#FBFCFF]" : "bg-secondary/25"
+                  } max-w-[90%] block mb-2`}
+                ></span>
                 <ul
                   className={`grid ${
                     res.gridcols === "grid-cols-2"
@@ -111,7 +125,9 @@ const Footer = () => {
                   {res.menulist.map((res, i) => (
                     <li
                       key={i}
-                      className="pt-4 gap-x-1 group/box flex items-center  text-[#656B89] cursor-pointer font-normal"
+                      className={`pt-4 gap-x-1 group/box flex items-center  ${
+                        clubpath ? "text-[#E4E7EC]" : "text-[#656B89]"
+                      } cursor-pointer font-normal`}
                     >
                       <ArrowRight
                         size={17}
@@ -129,14 +145,22 @@ const Footer = () => {
               </div>
             ))}
 
-            <div className="bg-[#F5FAFF] px-6 py-7 hidden md:block rounded-2xl shadow-custom-1">
+            <div
+              className={` ${
+                clubpath ? "bg-[#D0D8E71A]/10" : "bg-[#F5FAFF]"
+              } px-6 py-7 hidden md:block rounded-2xl shadow-custom-1`}
+            >
               <div className="rounded-2xl p-4 bg-primary inline-block">
                 <PencilRuler size={28} color="#FFFFFF" />
               </div>
-              <h3 className="text-xl font-bold text-secondary py-4">
+              <h3
+                className={` ${
+                  clubpath ? "text-white" : "text-secondary"
+                } text-xl font-bold  py-4 `}
+              >
                 Become a Partner
               </h3>
-              <p className="text-base font-normal text-secondary">
+              <p className="text-base font-normal text-[#656B89]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod
                 pellentesque posuere.
               </p>

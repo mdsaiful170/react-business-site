@@ -1,0 +1,94 @@
+{
+  "resturant": [
+    {
+      "id": 1,
+      "img": "./restu-img-1.png",
+      "title": "Slow Lagos",
+      "des": "2 Musa Yar’Adua, Lagos Nigeria",
+      "coun": "African . italian . Asian . Continental",
+      "delay": 0.1
+    },
+
+    {
+      "id": 2,
+      "img": "./restu-img-2.png",
+      "title": "Nok by Alara",
+      "des": "2 Musa Yar’Adua, Lagos Nigeria",
+      "coun": "African . italian . Asian . Continental",
+      "delay": 0.3
+    },
+    {
+      "id": 2,
+      "img": "./restu-img-3.png",
+      "title": "Soho",
+      "des": "2 Musa Yar’Adua, Lagos Nigeria",
+      "coun": "African . italian . Asian . Continental",
+      "delay": 0.5
+    },
+    {
+      "id": 4,
+      "img": "./restu-img-4.png",
+      "title": "Noir",
+      "des": "2 Musa Yar’Adua, Lagos Nigeria",
+      "coun": "African . italian . Asian . Continental",
+      "delay": 0.7
+    }
+  ],
+
+  "carusole": [
+    {
+      "img": "drinkc-img-1.png",
+      "title": "GTCO Food and Drink Festival 2022: Africa’s Biggest Food and Drink Festival",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    },
+    {
+      "img": "drinkc-img-2.png",
+      "title": "Upcoming events this weekend",
+      "des": "Lorem ipsum dolor Enjoy the freedom of universal payments for a seamless marketplace experience sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Enjoy the freedom of universal payments for a seamless marketplace experience "
+    },
+    {
+      "img": "drinkc-img-3.png",
+      "title": "GTCO Food and Drink Festival 2022:",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enjoy the freedom of universal payments for a seamless marketplace experience"
+    }
+  ],
+
+  "nightClub":[
+    {
+      "img":"club-card-img-1.png",
+      "title":"Quilox ",
+      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
+      "datebox":{
+        "date":"Mondays-Friday",
+        "time":"8pm-3am"
+      }
+    },
+    {
+      "img":"club-card-img-2.png",
+      "title":"Silver fox ",
+      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
+      "datebox":{
+        "date":"Mondays-Friday",
+        "time":"8pm-3am"
+      }
+    },
+    {
+      "img":"club-card-img-3.png",
+      "title":"Nitro night club",
+      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
+      "datebox":{
+        "date":"Mondays-Friday",
+        "time":"8pm-3am"
+      }
+    },
+    {
+      "img":"club-card-img-4.png",
+      "title":"Club vegas ",
+      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
+      "datebox":{
+        "date":"Mondays-Friday",
+        "time":"8pm-3am"
+      }
+    }
+  ]
+}

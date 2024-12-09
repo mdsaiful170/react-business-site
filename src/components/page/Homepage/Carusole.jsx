@@ -155,7 +155,7 @@ const Carusole = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "linear" }}
               className="col-span-4 md:col-span-2 "
             >
-              <HeadingTag className={"text-[42PX] pb-5"}>
+              <HeadingTag className={"text-4xl pb-5"}>
                 {carusole.title}
               </HeadingTag>
               <p className="text-xl font-normal text-secondary pb-6">
