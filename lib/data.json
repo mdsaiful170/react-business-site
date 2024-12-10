@@ -53,42 +53,64 @@
     }
   ],
 
-  "nightClub":[
+  "nightClub": [
     {
-      "img":"club-card-img-1.png",
-      "title":"Quilox ",
-      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
-      "datebox":{
-        "date":"Mondays-Friday",
-        "time":"8pm-3am"
+      "img": "club-card-img-1.png",
+      "title": "Quilox ",
+      "subtitle": "2 Musa Yar’Adua, Lagos Nigeria",
+      "delay": 0.1,
+      "datebox": {
+        "date": "Mondays-Friday",
+        "time": "8pm-3am"
       }
     },
     {
-      "img":"club-card-img-2.png",
-      "title":"Silver fox ",
-      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
-      "datebox":{
-        "date":"Mondays-Friday",
-        "time":"8pm-3am"
+      "img": "club-card-img-2.png",
+      "title": "Silver fox ",
+      "subtitle": "2 Musa Yar’Adua, Lagos Nigeria",
+      "delay": 0.3,
+      "datebox": {
+        "date": "Mondays-Friday",
+        "time": "8pm-3am"
       }
     },
     {
-      "img":"club-card-img-3.png",
-      "title":"Nitro night club",
-      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
-      "datebox":{
-        "date":"Mondays-Friday",
-        "time":"8pm-3am"
+      "img": "club-card-img-3.png",
+      "title": "Nitro night club",
+      "subtitle": "2 Musa Yar’Adua, Lagos Nigeria",
+      "delay": 0.5,
+      "datebox": {
+        "date": "Mondays-Friday",
+        "time": "8pm-3am"
       }
     },
     {
-      "img":"club-card-img-4.png",
-      "title":"Club vegas ",
-      "subtitle":"2 Musa Yar’Adua, Lagos Nigeria",
-      "datebox":{
-        "date":"Mondays-Friday",
-        "time":"8pm-3am"
+      "img": "club-card-img-4.png",
+      "title": "Club vegas ",
+      "subtitle": "2 Musa Yar’Adua, Lagos Nigeria",
+      "delay": 0.7,
+      "datebox": {
+        "date": "Mondays-Friday",
+        "time": "8pm-3am"
       }
+    }
+  ],
+
+  "clubcarusole": [
+    {
+      "img": "clubc-img-1.png",
+      "title": "The 90s with Dj Neptune",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    },
+    {
+      "img": "clubc-img-2.png",
+      "title": "Upcoming events this weekend",
+      "des": "Lorem ipsum dolor Enjoy the freedom of universal payments for a seamless marketplace experience sit amet, consectetur adipiscing elit, sed do"
+    },
+    {
+      "img": "clubc-img-3.png",
+      "title": "GTCO Food and Drink Festival 2022:",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enjoy the freedom of universal payments for a seamless marketplace experience"
     }
   ]
 }

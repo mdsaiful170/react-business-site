@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { ContainerTage } from "../../material/ContainerTage";
-import { HeadingTag } from "../../material/HeadingTag";
 import { motion } from "framer-motion";
+
 import {
-  Instagram,
-  Twitter,
-  MapPin,
-  Tag,
-  Clock,
-  Wallet,
   ChevronLeft,
   ChevronRight,
+  Clock,
+  Instagram,
+  MapPin,
+  Tag,
+  Twitter,
+  Wallet,
 } from "lucide-react";
+import { HeadingTag } from "../../material/HeadingTag";
 import { ButtonTag } from "../../material/ButtonTag";
 
 const dateBox = [
@@ -33,90 +34,80 @@ const dateBox = [
   },
 ];
 
-const DrinkCarusole = () => {
-  const [carusoleData, setData] = useState([]);
-  const [loading, setloading] = useState(true);
+const ClubCarusole = () => {
+  const [carausoleData, setData] = useState([]);
+  const [loadingData, setloadingData] = useState(true);
   const [error, seterror] = useState(false);
-  const [currentIndex, setIndex] = useState(0);
+  const [currentIndexData, setIndex] = useState(0);
+  const carusole = carausoleData[currentIndexData];
 
-  const fetchdata = async () => {
-    try {
-      setloading(true);
-      const response = await fetch("../../../../lib/data.json");
-      if (!response.ok) {
-        throw new Error("HTTP error: " + response.status);
-      }
-      const resualt = await response.json();
-      setData(resualt.carusole);
-    } catch (error) {
-      seterror(error);
-    } finally {
-      setloading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchdata();
-  }, []);
-
-  if (loading) {
-    return (
-      <p className="text-center text-secondary font-bold text-xl">Loading...</p>
-    );
-  }
-
-  // Error state
-  if (error) {
-    return (
-      <p className="text-center text-secondary font-bold text-xl">
-        {error.message}
-      </p>
-    );
-  }
   const handelPrevious = () => {
-    setIndex(function (prevousindex) {
-      if (prevousindex === carusoleData.length - 1) {
-        return 0;
-      } else {
-        return prevousindex + 1;
-      }
-    });
+    setIndex((prevIndex) =>
+      prevIndex === carausoleData.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  const handelNext = () => {
+    setIndex((nextIndex) =>
+      nextIndex === 0 ? carausoleData.length - 1 : nextIndex - 1
+    );
   };
 
-  const handelNext = () => {
-    setIndex(function (nextindex) {
-      if (nextindex === 0) {
-        return carusoleData.length - 1;
-      } else {
-        return nextindex - 1;
-      }
-    });
-  };
   const ActiveSlide = (index) => {
     setIndex(index);
   };
-  const carusole = carusoleData[currentIndex];
+
+  const fetchDatabox = async () => {
+    try {
+      setloadingData(true);
+      const responseCarusoleData = await fetch("../../../../lib/data.json");
+      if (!responseCarusoleData.ok) {
+        throw new Error("HTTP error: " + responseCarusoleData.status);
+      }
+      const resualteData = await responseCarusoleData.json();
+      setData(resualteData.clubcarusole);
+    } catch (error) {
+      seterror(error);
+    } finally {
+      setloadingData(false);
+    }
+  };
+  useEffect(() => {
+    fetchDatabox();
+  }, []);
+
+  if (loadingData)
+    return (
+      <p className="text-xl font-bold text-white text-center py-4">
+        loading...
+      </p>
+    );
+  if (error)
+    return (
+      <p className="text-xl font-bold text-white text-center py-4">
+        {error.message}
+      </p>
+    );
 
   return (
     <>
       <section className="py-9">
         <ContainerTage className={"relative px-4 lg:px-10"}>
-          <HeadingTag className={"text-3xl font-bold text-secondary pb-9"}>
-            Upcoming Eat & Drink Events
+          <HeadingTag className={"text-3xl font-bold text-white pb-9"}>
+            Tonight In Lagos
           </HeadingTag>
 
           <button
             className="absolute -left-8 top-[45%] md:top-1/2"
             onClick={handelPrevious}
           >
-            <ChevronLeft size={65} color="#26395C" strokeWidth={1} />{" "}
+            <ChevronLeft size={65} color="#FFFFFF" strokeWidth={1} />{" "}
           </button>
 
           <button
             className="absolute -right-8 top-[45%] md:top1/2 "
             onClick={handelNext}
           >
-            <ChevronRight size={65} color="#26395C" strokeWidth={1} />{" "}
+            <ChevronRight size={65} color="#FFFFFF" strokeWidth={1} />{" "}
           </button>
 
           <div className="grid grid-cols-4 lg:grid-cols-5 gap-x-7 gap-y-5">
@@ -143,10 +134,10 @@ const DrinkCarusole = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="col-span-4 md:col-span-2 "
             >
-              <HeadingTag className={"text-4xl pb-5"}>
+              <HeadingTag className={"text-4xl pb-5 text-white"}>
                 {carusole.title}
               </HeadingTag>
-              <p className="text-xl font-normal text-secondary pb-6">
+              <p className="text-xl font-normal text-white pb-6">
                 {carusole.des}
               </p>
 
@@ -156,7 +147,7 @@ const DrinkCarusole = () => {
                     <div>
                       {<res.icon size={28} fill="#0E8BFF" color="#FFFFFF" />}
                     </div>
-                    <p className="font-bold text-xl text-secondary">
+                    <p className="font-bold text-xl text-white">
                       {res.subtext}
                     </p>
                   </div>
@@ -175,23 +166,23 @@ const DrinkCarusole = () => {
                 <ButtonTag className={""}>Book Now </ButtonTag>
               </div>
 
-              <p className="text-xl gap-x-2 font-normal text-secondary pt-7 flex items-center">
+              <p className="text-xl gap-x-2 font-normal text-white pt-7 flex items-center">
                 Connect with us on:{" "}
-                <Twitter size={24} fill="#0E8BFF" color="#FFFFFF" />{" "}
-                <Instagram size={24} fill="#0E8BFF" color="#FFFFFF" />
+                <Twitter size={24} fill="#FFFFFF" color="#000000" />{" "}
+                <Instagram size={24} fill="#FFFFFF" color="#000000" />
               </p>
             </motion.div>
           </div>
 
           <div className="flex items-center justify-center gap-x-3 pt-10">
-            {carusoleData.map((_, index) => (
+            {carausoleData.map((_, index) => (
               <span
                 key={index}
                 onClick={() => {
                   ActiveSlide(index);
                 }}
                 className={` ${
-                  index === currentIndex ? "bg-secondary" : "bg-[#969DAA]"
+                  index === currentIndexData ? "bg-primary" : "bg-[#969DAA]"
                 } size-4  rounded-full cursor-pointer  block `}
               ></span>
             ))}
@@ -203,4 +194,4 @@ const DrinkCarusole = () => {
   );
 };
 
-export default DrinkCarusole;
+export default ClubCarusole;

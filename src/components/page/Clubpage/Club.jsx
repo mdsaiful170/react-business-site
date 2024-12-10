@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import ClubHero from "./ClubHero";
 import NightClub from "./NightClub";
+import ClubCarusole from "./ClubCarusole";
+import ClubMap from "./ClubMap";
 
 const Club = () => {
   useEffect(() => {
@@ -15,6 +17,9 @@ const Club = () => {
     <>
       <ClubHero />
       <NightClub title={"Popular Night Clubs"} />
+      <ClubCarusole />
+      <NightClub title={"Bars and Night clubs near you"} />
+      <ClubMap />
     </>
   );
 };
