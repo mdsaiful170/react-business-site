@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContainerTage } from "../../material/ContainerTage";
 import { HeadingTag } from "../../material/HeadingTag";
 import { motion } from "framer-motion";
+
 import {
   Instagram,
   Twitter,
@@ -13,6 +14,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { ButtonTag } from "../../material/ButtonTag";
+import { CartContext } from "../../ui/ContextBox";
+
 
 const dateBox = [
   {
@@ -38,6 +41,18 @@ const DrinkCarusole = () => {
   const [loading, setloading] = useState(true);
   const [error, seterror] = useState(false);
   const [currentIndex, setIndex] = useState(0);
+  const { dispatch } = useContext(CartContext);
+  const [message, setmessage] = useState("");
+
+  const addToCart = () => {
+    if (carusole) {
+      dispatch({ type: "ADD_TO_CART", payload: carusole }); // Use the current carousel item
+      setmessage(`${carusole.name} added to cart successfully!`);
+      setTimeout(() => {
+        setmessage(""); // Hide message after 2 seconds
+      }, 2000);
+    }
+  };
 
   const fetchdata = async () => {
     try {
@@ -47,7 +62,7 @@ const DrinkCarusole = () => {
         throw new Error("HTTP error: " + response.status);
       }
       const resualt = await response.json();
-      setData(resualt.carusole);
+      setData(resualt.clubcarusole);
     } catch (error) {
       seterror(error);
     } finally {
@@ -100,6 +115,9 @@ const DrinkCarusole = () => {
   return (
     <>
       <section className="py-9">
+      {message && (
+          <p className="text-center text-xl top-0 fixed  left-0 right-0 bg-white py-4 z-10  font-bold  text-red-400">{message}</p>
+        )}
         <ContainerTage className={"relative px-4 lg:px-10"}>
           <HeadingTag className={"text-3xl font-bold text-secondary pb-9"}>
             Upcoming Eat & Drink Events
@@ -144,13 +162,18 @@ const DrinkCarusole = () => {
               className="col-span-4 md:col-span-2 "
             >
               <HeadingTag className={"text-4xl pb-5"}>
-                {carusole.title}
+                {carusole.name}
               </HeadingTag>
-              <p className="text-xl font-normal text-secondary pb-6">
+              <p className="text-xl font-normal text-secondary pb-4">
                 {carusole.des}
               </p>
+              <p className="text-secondary  text-lg font-bold">
+                {" "}
+                Our Price:  <span className="text-xl">-/{carusole.price}$</span>
+              </p>
 
-              <div className="grid grid-cols-2 gap-5">
+
+              <div className="grid grid-cols-2 gap-5 pt-4">
                 {dateBox.map((res, i) => (
                   <div key={i} className="flex items-center gap-x-3 gap-y-4">
                     <div>
@@ -166,6 +189,7 @@ const DrinkCarusole = () => {
               <div className="pt-6 space-x-4">
                 <ButtonTag
                   varient={"bordered"}
+                  onclick={addToCart}
                   className={
                     " !text-primary hover:!text-white hover:!border-secondary "
                   }

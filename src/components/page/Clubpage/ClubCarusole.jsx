@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContainerTage } from "../../material/ContainerTage";
 import { motion } from "framer-motion";
 
@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { HeadingTag } from "../../material/HeadingTag";
 import { ButtonTag } from "../../material/ButtonTag";
+import { CartContext } from "../../ui/ContextBox";
 
 const dateBox = [
   {
@@ -40,6 +41,17 @@ const ClubCarusole = () => {
   const [error, seterror] = useState(false);
   const [currentIndexData, setIndex] = useState(0);
   const carusole = carausoleData[currentIndexData];
+  const { dispatch } = useContext(CartContext);
+  const [message, setmessage] = useState("");
+  const addToCart = () => {
+    if (carusole) {
+      dispatch({ type: "ADD_TO_CART", payload: carusole }); // Use the current carousel item
+      setmessage(`${carusole.name} added to cart successfully!`);
+      setTimeout(() => {
+        setmessage(""); // Hide message after 2 seconds
+      }, 2000);
+    }
+  };
 
   const handelPrevious = () => {
     setIndex((prevIndex) =>
@@ -91,6 +103,9 @@ const ClubCarusole = () => {
   return (
     <>
       <section className="py-9">
+        {message && (
+          <p className="text-center text-xl top-0 fixed left-0 z-10 right-0 bg-black py-4   font-bold  text-emerald-400">{message}</p>
+        )}
         <ContainerTage className={"relative px-4 lg:px-10"}>
           <HeadingTag className={"text-3xl font-bold text-white pb-9"}>
             Tonight In Lagos
@@ -135,7 +150,7 @@ const ClubCarusole = () => {
               className="col-span-4 md:col-span-2 "
             >
               <HeadingTag className={"text-4xl pb-5 text-white"}>
-                {carusole.title}
+                {carusole.name}
               </HeadingTag>
               <p className="text-xl font-normal text-white pb-6">
                 {carusole.des}
@@ -153,10 +168,14 @@ const ClubCarusole = () => {
                   </div>
                 ))}
               </div>
-
+              <p className="text-white mt-4 text-base font-bold">
+                {" "}
+                Our Price: -/{carusole.price}$
+              </p>
               <div className="pt-6 space-x-4">
                 <ButtonTag
                   varient={"bordered"}
+                  onclick={addToCart}
                   className={
                     " !text-primary hover:!text-white hover:!border-secondary "
                   }

@@ -21,18 +21,22 @@ import { ButtonTag } from "../material/ButtonTag";
 import Dropdwonbox from "../ui/Dropdwonbox";
 import Modelbox from "../ui/Modelbox";
 import { NavLink, useLocation } from "react-router-dom";
+import { CartContext } from "./ContextBox";
+import { useContext } from "react";
 const subMenuOne = ["water Sports", "Day Parties", "Outdoors", "Rentals"];
 const subMenuTwo = ["My Profile", "My History", "singOut"];
+
 const subMenuThree = [
   "My Profile",
   "Pay With Crypto",
-  "Cart",
+  "shopingcart",
   "Contact Us",
   "Log Out",
 ];
 
 const Header = () => {
   const location = useLocation();
+  const { cart } = useContext(CartContext);
   const path = () => {
     return location.pathname === "/club" ? "text-white" : "text-secondary";
   };
@@ -48,7 +52,7 @@ const Header = () => {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const value = false;
+  const value = true;
   const menuToggleHandel = () => setIsMenuOpen((prv) => !prv);
   return (
     <Navbar
@@ -147,7 +151,7 @@ const Header = () => {
           <NavbarItem>
             <Badge
               className="border-0"
-              content={3}
+              content={cart.length}
               color="primary"
               placement="top-right"
             >
@@ -172,7 +176,9 @@ const Header = () => {
         </NavbarItem>
 
         <NavbarItem>
-          <ButtonTag>contact now</ButtonTag>
+          <ButtonTag>
+            <NavLink to={"./contact"}>Contact Now</NavLink>
+          </ButtonTag>
         </NavbarItem>
       </NavbarContent>
 
@@ -182,13 +188,16 @@ const Header = () => {
         </NavbarItem>
 
         <NavbarItem>
-          <Badge className="border-0" content={3} color="primary" placement="top-right">
+          <Badge
+            className="border-0"
+            content={3}
+            color="primary"
+            placement="top-right"
+          >
             <NavLink
               to={"/shopingcart"}
               className={({ isActive }) =>
-                `font-medium text-lg ${
-                  isActive ? "!text-primary" : path()
-                }`
+                `font-medium text-lg ${isActive ? "!text-primary" : path()}`
               }
             >
               <ShoppingCart strokeWidth={2} />
@@ -248,9 +257,7 @@ const Header = () => {
             key="1"
             aria-label="things list"
             title={
-              <h3 className={`text-2xl font-medium ${path()}`}>
-                Things to do
-              </h3>
+              <h3 className={`text-2xl font-medium ${path()}`}>Things to do</h3>
             }
             className="!text-left border-b border-secondary/25 pb-2 !-ms-2 !-mt-2"
             indicator={<ChevronDown className={`${path()}`} size={24} />}
