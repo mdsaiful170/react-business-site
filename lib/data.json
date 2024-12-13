@@ -35,7 +35,6 @@
     }
   ],
 
-
   "nightClub": [
     {
       "img": "club-card-img-1.png",
@@ -85,7 +84,7 @@
       "price": 2000,
       "img": "clubc-img-1.png",
       "name": "The 90s with Dj Neptune",
-      "location":"sylhet",
+      "location": "sylhet",
       "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
     },
     {
@@ -93,7 +92,7 @@
       "price": 2500,
       "img": "clubc-img-2.png",
       "name": "Upcoming events this weekend",
-      "location":"citagong",
+      "location": "citagong",
       "des": "Lorem ipsum dolor Enjoy the freedom of universal payments for a seamless marketplace experience sit amet, consectetur adipiscing elit, sed do"
     },
     {
@@ -101,7 +100,7 @@
       "price": 2200,
       "img": "clubc-img-3.png",
       "name": "GTCO Food and Drink Festival 2022:",
-      "location":"Cumilla",
+      "location": "Cumilla",
       "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enjoy the freedom of universal payments for a seamless marketplace experience"
     },
     {
@@ -109,7 +108,7 @@
       "price": 2500,
       "img": "drinkc-img-1.png",
       "name": "GTCO Food and Drink Festival 2022: Africa’s Biggest Food and Drink Festival",
-      "location":"Dhaka",
+      "location": "Dhaka",
       "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
     },
     {
@@ -117,7 +116,7 @@
       "price": 3500,
       "img": "drinkc-img-2.png",
       "name": "Upcoming events this weekend",
-      "location":"Chotogram",
+      "location": "Chotogram",
       "des": "Lorem ipsum dolor Enjoy the freedom of universal payments for a seamless marketplace experience sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Enjoy the freedom of universal payments for a seamless marketplace experience "
     },
     {
@@ -125,8 +124,35 @@
       "price": 1500,
       "img": "drinkc-img-3.png",
       "name": "GTCO Food and Drink Festival 2022:",
-      "location":"Khulna",
+      "location": "Khulna",
       "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enjoy the freedom of universal payments for a seamless marketplace experience"
+    }
+  ],
+
+  "contactData": [
+    {
+      "id": 1,
+      "img": "contact-img-1.png",
+      "delay": 0.2,
+      "title": "Become an Influencer",
+      "subtext": "Join a company that’s passionate about design and technology",
+      "email": "chills@chillsbay.com"
+    },
+    {
+      "id": 2,
+      "img": "contact-img-2.png",
+      "title": "Refunds & Others",
+      "delay": 0.4,
+      "subtext": "Join a company that’s passionate about design and technology",
+      "email": "chills@chillsbay.com "
+    },
+    {
+      "id": 3,
+      "img": "contact-img-3.png",
+      "title": "Need Help?",
+      "delay": 0.6,
+      "subtext": "Join a company that’s passionate about design and technology",
+      "email": "chills@chillsbay.com"
     }
   ]
 }

@@ -129,7 +129,7 @@ const Modelbox = () => {
                     </label>
                     <input
                       type="text"
-                      className="outline-none w-full border border-slate-100 rounded-lg px-3 py-[10px] text-base font-semibold bg-[#F5FAFF] placeholder:text-base placeholder:font-medium placeholder:text-[#969DAA]"
+                      className={` ${location.pathname === '/club' ? "text-secondary":""} outline-none  w-full border border-slate-100 rounded-lg px-3 py-[10px] text-base font-semibold bg-[#F5FAFF] placeholder:text-base placeholder:font-medium placeholder:text-[#969DAA]`}
                       placeholder="e.g. johndoe@email.com"
                     />
                   </div>
@@ -140,8 +140,8 @@ const Modelbox = () => {
                     </label>
                     <div className="flex items-center border border-slate-100 rounded-lg w-full px-3 h-[46px]  text-base font-semibold bg-[#F5FAFF]">
                       <input
-                        type={inputType === "password" ? "password" : "text"}
-                        className="outline-none w-full h-full  placeholder:text-base bg-transparent   placeholder:font-medium placeholder:text-[#969DAA]"
+                        type={inputType === "password" ? "password" : "text"} 
+                        className={` ${location.pathname === '/club' ? "text-secondary":""} outline-none w-full h-full  placeholder:text-base bg-transparent   placeholder:font-medium placeholder:text-[#969DAA]`}
                         placeholder="enter your password"
                       />
                       {inputType === "password" ? (

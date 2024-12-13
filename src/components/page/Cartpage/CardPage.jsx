@@ -87,7 +87,7 @@ const CardPage = () => {
 
     // Create Table without Images
     doc.autoTable({
-      head: [["Name", "Date", "Quantity", "Unit Price", "Total"]],
+      head: [["Product Name", "Date", "Quantity", "Unit Price", "Total"]],
       body: tableData,
       startY: 30,
       styles: { overflow: "linebreak", fontSize: 10 },
@@ -149,7 +149,7 @@ const CardPage = () => {
         >
           Cart Page
         </HeadingTag>
-        <ContainerTage className={"border border-[#F5FAFF] shadow-custom-2  "}>
+        <ContainerTage className={"border border-[#F5FAFF] shadow-custom-4 rounded-md  "}>
           {cart.length === 0 ? (
             <p className="text-xl font-semibold text-secondary text-center py-1">
               Your cart is empaty
