@@ -190,7 +190,7 @@ const Header = () => {
         <NavbarItem>
           <Badge
             className="border-0"
-            content={3}
+            content={cart.length}
             color="primary"
             placement="top-right"
           >
@@ -224,6 +224,7 @@ const Header = () => {
         <NavbarItem className="pb-8 cursor-pointer">
           <NavLink
             to={"/drink"}
+            onClick={menuToggleHandel}
             className={({ isActive }) =>
               `font-medium text-2xl ${isActive ? "text-primary" : path()}`
             }
@@ -231,18 +232,10 @@ const Header = () => {
             Eat & drink
           </NavLink>
         </NavbarItem>
+
         <NavbarItem className="pb-8 cursor-pointer">
           <NavLink
-            to={"/events"}
-            className={({ isActive }) =>
-              `font-medium text-2xl ${isActive ? "text-primary" : path()}`
-            }
-          >
-            Events
-          </NavLink>
-        </NavbarItem>
-        <NavbarItem className="pb-8 cursor-pointer">
-          <NavLink
+            onClick={menuToggleHandel}
             to={"/club"}
             className={({ isActive }) =>
               `font-medium text-2xl ${isActive ? "text-primary" : path()}`
@@ -251,7 +244,17 @@ const Header = () => {
             Club
           </NavLink>
         </NavbarItem>
-
+        <NavbarItem className="pb-8 cursor-pointer">
+          <NavLink
+            onClick={menuToggleHandel}
+            to={"/events"}
+            className={({ isActive }) =>
+              `font-medium text-2xl ${isActive ? "text-primary" : path()}`
+            }
+          >
+            Events
+          </NavLink>
+        </NavbarItem>
         <Accordion variant="light">
           <AccordionItem
             key="1"
@@ -265,6 +268,7 @@ const Header = () => {
             {subMenuThree.map((item, i) => (
               <NavbarItem className="-ms-6 pb-8" key={i}>
                 <NavLink
+                  onClick={menuToggleHandel}
                   to={`/${item.replace(/\s+/g, "").trim().toLowerCase()}`}
                   className={({ isActive }) =>
                     `font-medium text-2xl ${isActive ? "text-primary" : path()}`
